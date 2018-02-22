@@ -1,1 +1,1 @@
-export const FORUM_ADDRESS = '';
+export const FORUM_ADDRESS = 'localhost:9000';

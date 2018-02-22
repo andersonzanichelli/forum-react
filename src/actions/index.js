@@ -16,3 +16,9 @@ export function fetchCategories() {
     payload: request
   }
 }
+
+export function signin({ username, password }) {
+  return (dispatch) => {
+    const request = axios.post(`${FORUM_ADDRESS}/signin`, { username, password });
+  }
+}

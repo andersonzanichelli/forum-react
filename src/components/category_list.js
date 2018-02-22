@@ -4,11 +4,18 @@ import * as actions from '../actions';
 
 const CategoryList = (props) => {
 
-  const options = props.categories.map(category => <option key={category} value={category}>{category}</option>);
+  function componentWillMount() {
+    this.props.fetchCategories();
+  }
+
+  function getOptions() {
+    const options = props.categories.map(category => <option key={category} value={category}>{category}</option>);
+    return options;
+  }
 
   return (
     <div>
-      <select className="category-list">{options}</select>
+      <select className="category-list">{ getOptions() }</select>
     </div>
   );
 }

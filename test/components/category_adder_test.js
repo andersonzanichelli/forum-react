@@ -13,7 +13,7 @@ describe('CategoryAdder', () => {
     expect(component).to.have.class('category-adder');
   });
 
-  it('has a input', () => {
+  it('has an input', () => {
     expect(component.find('input')).to.exist;
   });
 

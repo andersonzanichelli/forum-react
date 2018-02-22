@@ -1,8 +1,10 @@
 import { combineReducers } from 'redux';
-import categoryReducer from './category';
+import categories from './category';
+import { reducer as form } from 'redux-form';
 
 const rootReducer = combineReducers({
-  categories: categoryReducer
+  categories,
+  form
 });
 
 export default rootReducer;
