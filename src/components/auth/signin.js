@@ -26,7 +26,7 @@ class Signin extends Component {
         <form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
           <fieldset className="form-group">
             <label>Email:</label>
-            <input type="text" {...username} className="form-control" />
+            <input type="email" {...username} className="form-control" />
           </fieldset>
           <fieldset className="form-group">
             <label>Password:</label>
@@ -44,5 +44,7 @@ function mapStateToProps(state) {
   return { errorMessage: state.auth.error };
 }
 
-Signin = reduxForm({ form: 'signin', fields: [ 'username', 'password' ] })(Signin);
-export default connect(mapStateToProps, actions)(Signin)
+export default reduxForm({
+  form: 'signin',
+  fields: ['username', 'password'] },
+  mapStateToProps, actions)(Signin);

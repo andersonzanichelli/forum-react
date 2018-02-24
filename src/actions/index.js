@@ -25,10 +25,29 @@ export function signin({ username, password }) {
       .then( response => {
         dispatch({ type: AUTH_USER });
         localStorage.setItem('token', response.data.token);
+        localStorage.setItem('username', response.data.username);
         browserHistory.push('/');
       }).catch(error => {
         dispatch(authError(error.response.data.error))
       });
+  }
+}
+
+export function signout() {
+  localStorage.removeItem('token');
+  localStorage.removeItem('username');
+
+  return { type: UNAUTH_USER };
+}
+
+export function signup({ username, password }) {
+  return (dispatch) => {
+    axios.post(`${FORUM_ADDRESS}/signup`, { username, password, role: 'USER' })
+      .then( response => {
+        browserHistory.push('signin');
+      }).catch(error => {
+        dispatch(authError(error.response.data.error));
+      })
   }
 }
 

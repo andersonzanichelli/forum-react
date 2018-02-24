@@ -1,0 +1,13 @@
+.error {
+  color: red;
+}
+
+.hello-user {
+  display: inline-block;
+  overflow: hidden;
+  line-height: 1;
+  vertical-align: middle;
+  border-radius: 3px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
